@@ -1,4 +1,4 @@
-package betterKitchen.vo;
+package betterKitchen.data.vo;
 
 import java.io.Serializable;
 import javax.persistence.*;

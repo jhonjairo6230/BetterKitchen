@@ -6,11 +6,36 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Hola Gente</title>
+	<title>La Mejor Cocina</title>
 </h:head>
 <body>
-	<h1>Hola mundo carajo!</h1>
-	<h:commandButton value="Click me!" />
-	<p:editor value=""></p:editor>
+	<h1>Aqui sus clientes</h1>
+	<h:form prependId="false">
+		<p:dataTable id="clientesTable" value="#{clienteBean.clientes}"
+			var="cliente" selection="#{clienteBean.selected}"
+			rowKey="#{cliente.id}" reflow="true" paginator="true" rows="20"
+			style="width: 100%;margin: auto;float: right;">
+
+			<f:facet name="header">
+				<div style="position: relative; width: auto; height: 40px;">
+					<span class="icon-users"
+						style="font-family: arial; font-size: 20px; margin-top: 10px; margin: auto;">
+						Clientes Registrados </span>
+					<div style="float: right; margin-right: 10px; margin-top: 0px;">
+						<h:commandLink>
+							<!--                                         <img src="./resources/img/csv-icon.png" style="width: 40px;height: 40px;" /> -->
+							<!--                                         <p:dataExporter type="csv" target="UsuariosAsesores" fileName="Tabla_Asesores/Autocentro" /> -->
+						</h:commandLink>
+					</div>
+				</div>
+			</f:facet>
+
+			<p:column selectionMode="multiple"
+				style="width:40px;text-align:center" />
+			<p:column headerText="Nombre">
+				<h:outputText value="#{cliente.nombre}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </body>
 </html>
